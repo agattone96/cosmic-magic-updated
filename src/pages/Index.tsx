@@ -1,18 +1,18 @@
-import { Layout } from '../components/Layout';
-import { Hero } from '../components/Hero';
-import { motion } from "framer-motion";
+import { Hero } from "@/components/Hero";
+import { Projects } from "@/components/Projects";
+import { MeetTheArtist } from "@/components/MeetTheArtist";
+import { About } from "@/components/About";
+import { Contact } from "@/components/Contact";
 
 const Index = () => {
   return (
-    <Layout>
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Hero />
-      </motion.div>
-    </Layout>
+    <div className="space-y-20 pb-20">
+      <Hero />
+      <Projects />
+      <MeetTheArtist />
+      <About />
+      <Contact />
+    </div>
   );
 };
 
