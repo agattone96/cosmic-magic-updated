@@ -24,10 +24,12 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
+    @apply font-cinzel;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   p, span, a {
+    @apply font-bitter;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 }
@@ -59,6 +61,31 @@
   .cosmic-gradient {
     @apply absolute inset-0 bg-gradient-to-b from-cosmic-dark via-[#2A1F3D] to-cosmic-dark opacity-50;
   }
+}
+
+.stars-container {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: stars-animation 100s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes stars-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
 
   .btn {
     @apply flex justify-center items-center w-52 h-12 relative overflow-hidden cursor-pointer 

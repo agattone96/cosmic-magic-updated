@@ -38,7 +38,7 @@ export default {
       keyframes: {
         "twinkle": {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
+          "50%": { opacity: "0.5" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
