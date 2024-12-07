@@ -30,58 +30,43 @@ export const Navigation = () => {
   ];
 
   return (
-    <motion.nav 
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 50, damping: 20 }}
+    <nav 
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled ? 'bg-cosmic-dark/90 backdrop-blur-md py-4 shadow-lg' : 'py-6'
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4">
-        <Link to="/" className="font-cinzel text-xl md:text-2xl font-bold group">
-          <motion.span 
-            className="bg-gradient-to-r from-cosmic-accent to-cosmic-purple bg-clip-text text-transparent inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05, x: 5 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
-            <Star className="w-5 h-5 text-cosmic-accent animate-pulse" />
+        <Link to="/" className="font-cinzel text-xl md:text-2xl font-bold">
+          <span className="bg-gradient-to-r from-cosmic-accent to-cosmic-purple bg-clip-text text-transparent inline-flex items-center gap-2">
+            <Star className="w-5 h-5 text-cosmic-accent" />
             Allison Gattone
-          </motion.span>
+          </span>
         </Link>
 
-        <motion.button 
+        <button 
           className="md:hidden text-cosmic-light hover:text-cosmic-accent transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </motion.button>
+        </button>
 
         <div className="hidden md:flex space-x-8">
           {navLinks.map(({ path, label, description }) => (
             <TooltipProvider key={path}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <motion.div
-                    whileHover={{ y: -2 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
+                  <div>
                     <Link
                       to={path}
                       className={`nav-link group ${location.pathname === path ? 'text-cosmic-accent' : ''}`}
                     >
                       {label}
-                      <motion.span 
+                      <span 
                         className="absolute bottom-0 left-0 w-full h-0.5 bg-cosmic-accent transform origin-left"
-                        initial={{ scaleX: 0 }}
-                        animate={location.pathname === path ? { scaleX: 1 } : { scaleX: 0 }}
-                        transition={{ duration: 0.3 }}
                       />
                     </Link>
-                  </motion.div>
+                  </div>
                 </TooltipTrigger>
                 <TooltipContent 
                   className="bg-cosmic-dark/90 backdrop-blur-md border border-cosmic-accent text-cosmic-light px-4 py-2 rounded-lg shadow-lg"
@@ -126,6 +111,6 @@ export const Navigation = () => {
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
