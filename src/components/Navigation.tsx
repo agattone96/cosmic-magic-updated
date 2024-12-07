@@ -31,9 +31,9 @@ export const Navigation = () => {
 
   return (
     <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 50, damping: 20 }}
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled ? 'bg-cosmic-dark/90 backdrop-blur-md py-4 shadow-lg' : 'py-6'
       }`}
@@ -42,7 +42,7 @@ export const Navigation = () => {
         <Link to="/" className="font-cinzel text-xl md:text-2xl font-bold group">
           <motion.span 
             className="bg-gradient-to-r from-cosmic-accent to-cosmic-purple bg-clip-text text-transparent inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, x: 5 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
             <Star className="w-5 h-5 text-cosmic-accent animate-pulse" />
@@ -75,9 +75,10 @@ export const Navigation = () => {
                     >
                       {label}
                       <motion.span 
-                        className="absolute bottom-0 left-0 w-full h-0.5 bg-cosmic-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                        initial={false}
+                        className="absolute bottom-0 left-0 w-full h-0.5 bg-cosmic-accent transform origin-left"
+                        initial={{ scaleX: 0 }}
                         animate={location.pathname === path ? { scaleX: 1 } : { scaleX: 0 }}
+                        transition={{ duration: 0.3 }}
                       />
                     </Link>
                   </motion.div>
