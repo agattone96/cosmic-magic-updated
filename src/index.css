@@ -61,6 +61,20 @@
   .cosmic-gradient {
     @apply absolute inset-0 bg-gradient-to-b from-cosmic-dark via-[#2A1F3D] to-cosmic-dark opacity-50;
   }
+
+  .btn {
+    @apply flex justify-center items-center w-52 h-12 relative overflow-hidden cursor-pointer 
+           backdrop-blur-md rounded-full transition-all duration-500 hover:scale-110 
+           border-[3px] border-transparent bg-origin-border;
+    background-image: linear-gradient(#212121, #212121),
+      linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
+    background-clip: content-box, border-box;
+  }
+
+  .btn strong {
+    @apply z-20 font-cinzel text-sm tracking-widest text-white;
+    text-shadow: 0 0 10px #FF719A, 0 0 20px #FF719A;
+  }
 }
 
 .stars-container {
@@ -84,21 +98,6 @@
   }
   to {
     transform: translateY(-2000px);
-  }
-}
-
-  .btn {
-    @apply flex justify-center items-center w-52 h-12 relative overflow-hidden cursor-pointer 
-           backdrop-blur-md rounded-full transition-all duration-500 hover:scale-110 
-           border-[3px] border-transparent bg-origin-border;
-    background-image: linear-gradient(#212121, #212121),
-      linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
-    background-clip: content-box, border-box;
-  }
-
-  .btn strong {
-    @apply z-20 font-cinzel text-sm tracking-widest text-white;
-    text-shadow: 0 0 10px #FF719A, 0 0 20px #FF719A;
   }
 }
 
